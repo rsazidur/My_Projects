@@ -4,6 +4,7 @@ import pygame  # The pygame module contains the functionality we need to make a 
 
 from settings import Settings
 
+
 class AlineInvasion:
     """Overall class to manage game assets and behavior."""
 
@@ -13,7 +14,7 @@ class AlineInvasion:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode(
-            (self.settings.screen_width, self.settings.screen_height))      # surface
+            (self.settings.screen_width, self.settings.screen_height))  # surface
 
         pygame.display.set_caption("Alien Invasion")
 
