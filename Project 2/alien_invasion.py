@@ -44,6 +44,9 @@ class AlineInvasion:
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_RIGHT:
                         self.ship.moving_right = False
+                    elif event.key == pygame.K_LEFT:
+                        self.ship.moving_left = False
+
 
     def _update_screen(self):
         """Update image on the screen, and flip to the new screen."""
