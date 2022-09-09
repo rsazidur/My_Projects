@@ -1,5 +1,7 @@
 import pygame
 from pygame.sprite import Sprite
+"""When you use sprites, you can group related elements in
+your game and act on all the grouped elements at once."""
 
 
 class Bullet(Sprite):

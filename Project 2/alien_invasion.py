@@ -42,7 +42,7 @@ class AlineInvasion:
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                self._check_keydown_events(event)
+                self._check_keyup_events(event)
 
     def _check_keydown_events(self, event):
         """Respond to key-presses."""
@@ -56,7 +56,7 @@ class AlineInvasion:
     def _check_keyup_events(self, event):
         """Respond to release."""
         if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = False
+            self.ship.moving_right = False  # When the moving_right flag is False, the ship will be motionless.
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
 
