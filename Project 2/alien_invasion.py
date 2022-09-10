@@ -6,6 +6,7 @@ import pygame  # The pygame module contains the functionality we need to make a 
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Aline
 
 
 class AlineInvasion:
@@ -24,7 +25,9 @@ class AlineInvasion:
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
 
+        self._creat_fleet()
         # Set the background color.
         self.bg_color = (230, 230, 230)
 
@@ -82,6 +85,12 @@ class AlineInvasion:
         # The add() method is similar to append(), but it’s a method that’s written specifically for Pygame groups.
         self.bullets.add(new_bullet)
 
+    def _creat_fleet(self):
+        """Create the fleet of aliens."""
+        # Make the alien.
+        alien = Aline(self)
+        self.aliens.add(alien)
+
     def _update_screen(self):
         """Update image on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
@@ -89,6 +98,7 @@ class AlineInvasion:
         # The bullets.sprites() method returns a list of all sprites in the group bullets.
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        self.aliens.draw(self.screen)
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
