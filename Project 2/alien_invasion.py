@@ -35,17 +35,17 @@ class AlineInvasion:
 
             self._check_events()
             self.ship.update()
-            self._update_bulltets()
+            self.bullets.update()
             self._update_screen()
             # Redraw the screen during each pass through the loop.
 
-    def _update_bulltets(self):
-        """Update position of bullets and get rid of old bullets."""
-        # Get rid of bullets that have disappeared.
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
-                self.bullets.remove(bullet)
-        print(len(self.bullets))
+    # def _update_bulltets(self):
+    #     """Update position of bullets and get rid of old bullets."""
+    #     # Get rid of bullets that have disappeared.
+    #     for bullet in self.bullets.copy():
+    #         if bullet.rect.bottom <= 0:
+    #             self.bullets.remove(bullet)
+    #     print(len(self.bullets))
 
     def _check_events(self):
         # Respond to key presses and mouse events.
@@ -77,10 +77,10 @@ class AlineInvasion:
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
-        if len(self.bullets) < self.settings.bullet_allowed:
-            new_bullet = Bullet(self)
+        #   if len(self.bullets) < self.settings.bullet_allowed:
+        new_bullet = Bullet(self)
         # The add() method is similar to append(), but it’s a method that’s written specifically for Pygame groups.
-            self.bullets.add(new_bullet)
+        self.bullets.add(new_bullet)
 
     def _update_screen(self):
         """Update image on the screen, and flip to the new screen."""
